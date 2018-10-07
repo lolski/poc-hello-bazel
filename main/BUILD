@@ -1,5 +1,5 @@
-java_binary(
-    name = "Main",
+java_library(
+    name = "MainLib",
     srcs = glob(["src/main/java/**/*.java"]),
     deps = [
         "//logger:Logger",
@@ -7,12 +7,14 @@ java_binary(
     ]
 )
 
+java_binary(
+    name = "Main",
+    main_class = "com.lolski.hellobazel.main.Main",
+    runtime_deps = [":MainLib"]
+)
+
 java_test(
     name = "MainTest",
     srcs = glob(["src/test/java/**/*.java"]),
-    deps = [
-        ":Main",
-        "//logger:Logger",
-        "@com_google_guava_guava//jar"
-    ]
+    deps = [":MainLib"]
 )
