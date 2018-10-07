@@ -1,6 +1,6 @@
 java_binary(
     name = "Main",
-    srcs = glob(["src/**/*.java"]),
+    srcs = glob(["src/main/java/**/*.java"]),
     deps = [
         "//logger:Logger",
         "//grammar:Grammar",
