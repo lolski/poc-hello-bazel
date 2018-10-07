@@ -1,8 +1,8 @@
-package com.lolski.packagea;
+package com.lolski.hellobazel.main;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import com.lolski.packageb.logger.Logger;
+import com.lolski.hellobazel.logger.Logger;
 
 public class Main {
     public static void main(String args[]) {

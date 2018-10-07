@@ -1,4 +1,4 @@
-package com.lolski.packageb.logger;
+package com.lolski.hellobazel.logger;
 
 public class Logger {
     public static void log(String message) {
