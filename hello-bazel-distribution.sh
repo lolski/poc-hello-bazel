@@ -4,8 +4,8 @@ script="$1"
 jar="$2"
 output="$3"
 
-base_dir=hello-bazel-distribution
-jar_dir=jar
+base_dir="hello-bazel-distribution"
+jar_dir="."
 
 mkdir "$base_dir"
 mkdir "$base_dir/$jar_dir"
