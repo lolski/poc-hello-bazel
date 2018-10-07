@@ -7,8 +7,8 @@ java_binary(
 
 genrule(
     name = "HelloBazelDistribution",
-    srcs = ["//:HelloBazel", "//:HelloBazel_deploy.jar"],
+    srcs = ["//:HelloBazel.jar", "//:HelloBazel_deploy.jar"],
     outs = ["hello-bazel-distribution.zip"],
-    cmd = "$(location hello-bazel-distribution.sh) $(location //:HelloBazel) $(location //:HelloBazel_deploy.jar) $(location hello-bazel-distribution.zip)",
+    cmd = "$(location hello-bazel-distribution.sh) $(location //:HelloBazel.jar) $(location //:HelloBazel_deploy.jar) $(location hello-bazel-distribution.zip)",
     tools = ["hello-bazel-distribution.sh"]
 )

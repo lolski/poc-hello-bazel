@@ -13,3 +13,5 @@ cp "$script" "$base_dir"
 cp "$jar" "$base_dir/$jar_dir"
 
 zip -r "$output" "$base_dir"
+
+rm -r "$base_dir"
