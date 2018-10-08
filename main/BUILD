@@ -11,5 +11,5 @@ java_library(
 java_test(
     name = "MainTest",
     srcs = glob(["src/test/java/**/*.java"]),
-    deps = [":MainLib"]
+    deps = [":Main"]
 )
