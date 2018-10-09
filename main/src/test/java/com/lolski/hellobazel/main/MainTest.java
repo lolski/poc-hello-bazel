@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class MainTest {
     @Test
-    public void itjiojogttestMain() {
+    public void testAFunctionality() {
         Main.main(new String[] {});
     }
 }
