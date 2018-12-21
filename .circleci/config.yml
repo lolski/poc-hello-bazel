@@ -20,10 +20,10 @@ jobs:
       - checkout
       - *install_bazel
       - run:
-        name: Install Google Cloud Remote Build Execution Credential
-        command: |
-          mkdir -p ~/.config/gcloud/
-          echo $GOOGLE_CLOUD_REMOTE_BUILD_EXECUTION_CREDENTIALS > ~/.config/gcloud/application_default_credentials.json
+          name: Install Google Cloud Remote Build Execution Credential
+          command: |
+            mkdir -p ~/.config/gcloud/
+            echo $GOOGLE_CLOUD_REMOTE_BUILD_EXECUTION_CREDENTIALS > ~/.config/gcloud/application_default_credentials.json
       - run: bazel --bazelrc=.bazelrc test //... --config=remote --remote_instance_name=projects/grakn-dev/instances/default_instance --project_id=grakn-dev
 
 workflows:
