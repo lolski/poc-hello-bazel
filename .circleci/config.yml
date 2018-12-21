@@ -13,7 +13,7 @@ references:
         at: ~/grakn
 
 jobs:
-  build:
+  test:
     machine: true
     working_directory: ~/hello-bazel
     steps:
