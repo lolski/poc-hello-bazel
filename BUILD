@@ -12,3 +12,5 @@ genrule(
     cmd = "$(location hello-bazel-distribution.sh) $(location hello-bazel.sh) $(location HelloBazel_deploy.jar) $(location hello-bazel-distribution.zip)",
     tools = ["hello-bazel-distribution.sh"]
 )
+
+exports_files(["deployment.properties"])

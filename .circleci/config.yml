@@ -1,0 +1,33 @@
+version: 2
+references:
+    install_bazel: &install_bazel
+      run:
+        name: Install bazel
+        command: |
+          curl -OL https://github.com/bazelbuild/bazel/releases/download/0.20.0/bazel-0.20.0-installer-linux-x86_64.sh
+          chmod +x bazel-0.20.0-installer-linux-x86_64.sh
+          sudo ./bazel-0.20.0-installer-linux-x86_64.sh
+
+    attach_grakn_workspace: &attach_grakn_workspace
+      attach_workspace:
+        at: ~/grakn
+
+jobs:
+  test:
+    machine: true
+    working_directory: ~/hello-bazel
+    steps:
+      - checkout
+      - *install_bazel
+      - run:
+          name: Install Google Cloud Remote Build Execution Credential
+          command: |
+            mkdir -p ~/.config/gcloud/
+            echo $GOOGLE_CLOUD_REMOTE_BUILD_EXECUTION_CREDENTIALS > ~/.config/gcloud/application_default_credentials.json
+      - run: bazel --bazelrc=.bazelrc test //... --config=remote --remote_instance_name=projects/grakn-dev/instances/default_instance --project_id=grakn-dev
+
+workflows:
+  version: 2
+  hello-bazel:
+    jobs:
+      - test
